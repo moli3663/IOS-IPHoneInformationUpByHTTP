@@ -5,3 +5,4 @@
 #///引入SystemConfiguration.framework
 #IPHoneInfo脚本，引用和了HTTPUsing和GetNetWorkInfo脚本
 #GetNetWorkInfo脚本，引用了Apple api Reachaability
+如果引入脚本 报错，脚本名'script.h' file not found with <angled> include; use "quotes" instead，将#import <scripts.h> 改为#import 'scripts.h'
