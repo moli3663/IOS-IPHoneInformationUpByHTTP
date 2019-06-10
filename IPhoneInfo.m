@@ -7,10 +7,20 @@
 
 #import "IPhoneInfo.h"
 
+///实现广告类 单例
+@implementation ASIdentifierManager
++ (ASIdentifierManager * _Nonnull)sharedManager{
+    static dispatch_once_t onceToken;
+    static ASIdentifierManager* instance=nil;
+    dispatch_once(&onceToken, ^{
+        if (instance==nil) {
+            instance=[[ASIdentifierManager alloc] init];
+        }
+    });
+    return instance;
+};///end ASIdentifierManager
 
-
-
-
+@end
 @implementation  IPhoneInfo
 
 static IPhoneInfo* instance=nil;
@@ -50,8 +60,8 @@ static IPhoneInfo* instance=nil;
         NSString* screenheight=self.getScreenheight;
         NSString* screenwidth=self.getScreenwidth;
         NSString* networktype=self.getNetType;
-        //此处用Mac地址代替IMEI
-        NSString* imei=[[GetNetWorkInfo instance_NetWorkInfo] getMacAddress];
+        //此处用IDFA地址代替IMEI
+        NSString* imei=self.getIDFA;
         NSString* imsi=@"";
         info=[[NSString alloc]initWithFormat:@"uuid=%@&brand=%@&model=%@&release=%@&sdk=%d&memoryfree=%@&screenheight=%@&screenwidth=%@&networktype=%@&imei=%@&imsi=%@",uuid,brand,model,release,sdk,memoryfree,screenheight,screenwidth,networktype,imei,imsi];
     } @catch (NSException *exception) {
@@ -210,9 +220,9 @@ return deviceUUID;
     NSString*  rectWidth=[NSString stringWithFormat:@"%d",(int)width];
     return rectWidth;
 };
-//获取手机IMEI  ios禁止获取imei ,此处用 mac 地址代替
+//获取手机IMEI  ios禁止获取imei ,此处用 IDFA代替
 +(NSString *)getIMEI{
-    return [[GetNetWorkInfo instance_NetWorkInfo] getMacAddress];
+    return self.getIDFA;
 };
 //获取手机系统版本号
 +(NSString *)getRelease{
@@ -229,4 +239,17 @@ return deviceUUID;
 +(NSString*) getMacAdress {
     return [[GetNetWorkInfo instance_NetWorkInfo] getMacAddress];
 }
-@end
+///获取手机IDFA  ios禁止获取imei ,此处用 IDFA
++(NSString*) getIDFA{
+   // Boolean IDFACan =[[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled];
+  NSString*  idfa=[SimulateIDFA createSimulateIDFA];
+//    if(IDFACan){
+//        idfa=[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+//        NSLog(@"IDFA可用");
+//    }else{
+//        NSLog(@"IDFA不可用");
+//    };
+    NSLog(@"IDFA:%@",idfa);
+    return idfa;
+};
+@end///IPhoneInfo 手机信息获取
