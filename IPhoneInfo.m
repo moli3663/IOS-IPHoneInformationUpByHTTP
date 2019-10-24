@@ -141,7 +141,10 @@ static IPhoneInfo* instance=nil;
         [platform isEqualToString:@"iPad7,2"]) return @"iPadPro12.9-inch2";
     if ([platform isEqualToString:@"iPad7,3"] ||
         [platform isEqualToString:@"iPad7,4"]) return @"iPadPro10.5-inch";
-        
+    if ([platform isEqualToString:@"iPad8,1"] || [platform isEqualToString:@"iPad8,2"]||
+        [platform isEqualToString:@"iPad8,3"]||[platform isEqualToString:@"iPad8,4"]) return @"iPadPro11-inch";
+    if ([platform isEqualToString:@"iPad8,5"] ||[platform isEqualToString:@"iPad8,6"] ||
+        [platform isEqualToString:@"iPad8,7"]||[platform isEqualToString:@"iPad8,8"]) return @"iPadPro12.9-inch3"; 
     
     //------------------------------iPad Mini-----------------------
     if ([platform isEqualToString:@"iPad2,5"] ||
