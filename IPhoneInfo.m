@@ -110,6 +110,9 @@ static IPhoneInfo* instance=nil;
     if ([platform isEqualToString:@"iPhone11,2"]) return @"iPhoneXS";
     if ([platform isEqualToString:@"iPhone11,4"] ||
         [platform isEqualToString:@"iPhone11,6"]) return @"iPhoneXSMax";
+    if ([platform isEqualToString:@"iPhone12,1"] return @"iPhone11";
+    if ([platform isEqualToString:@"iPhone12,3"] return @"iPhone11Pro";
+    if ([platform isEqualToString:@"iPhone12,5"] return @"iPhone11ProMax";
     
     //------------------------------iPad--------------------------
     if ([platform isEqualToString:@"iPad1,1"]) return @"iPad";
