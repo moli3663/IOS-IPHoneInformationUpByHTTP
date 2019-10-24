@@ -110,9 +110,9 @@ static IPhoneInfo* instance=nil;
     if ([platform isEqualToString:@"iPhone11,2"]) return @"iPhoneXS";
     if ([platform isEqualToString:@"iPhone11,4"] ||
         [platform isEqualToString:@"iPhone11,6"]) return @"iPhoneXSMax";
-    if ([platform isEqualToString:@"iPhone12,1"] return @"iPhone11";
-    if ([platform isEqualToString:@"iPhone12,3"] return @"iPhone11Pro";
-    if ([platform isEqualToString:@"iPhone12,5"] return @"iPhone11ProMax";
+    if ([platform isEqualToString:@"iPhone12,1"]) return @"iPhone11";
+    if ([platform isEqualToString:@"iPhone12,3"]) return @"iPhone11Pro";
+    if ([platform isEqualToString:@"iPhone12,5"]) return @"iPhone11ProMax";
     
     //------------------------------iPad--------------------------
     if ([platform isEqualToString:@"iPad1,1"]) return @"iPad";
@@ -141,6 +141,7 @@ static IPhoneInfo* instance=nil;
         [platform isEqualToString:@"iPad7,2"]) return @"iPadPro12.9-inch2";
     if ([platform isEqualToString:@"iPad7,3"] ||
         [platform isEqualToString:@"iPad7,4"]) return @"iPadPro10.5-inch";
+        
     
     //------------------------------iPad Mini-----------------------
     if ([platform isEqualToString:@"iPad2,5"] ||
