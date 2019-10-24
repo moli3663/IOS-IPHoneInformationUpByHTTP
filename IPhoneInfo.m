@@ -48,6 +48,7 @@ static IPhoneInfo* instance=nil;
     NSLog(@"iphoneinfo:%@\n reporturl:%@",iphoneinfo,reportUrl);
     return true;
 };
+///获取设备信息 将设备信息用&连接,如有需要可自行修改返回方式
 +(NSString*)getIPhoneInfo{
     NSString* info=@"";
     @try {
