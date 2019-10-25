@@ -7,20 +7,6 @@
 
 #import "IPhoneInfo.h"
 
-///实现广告类 单例
-@implementation ASIdentifierManager
-+ (ASIdentifierManager * _Nonnull)sharedManager{
-    static dispatch_once_t onceToken;
-    static ASIdentifierManager* instance=nil;
-    dispatch_once(&onceToken, ^{
-        if (instance==nil) {
-            instance=[[ASIdentifierManager alloc] init];
-        }
-    });
-    return instance;
-};///end ASIdentifierManager
-
-@end
 @implementation  IPhoneInfo
 
 static IPhoneInfo* instance=nil;
