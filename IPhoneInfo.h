@@ -8,14 +8,11 @@
 ///添加依赖 libresolv.9.tbd  framework
 ///添加依赖 CoreTelephony.framework，获取网络类型
 ///添加依赖 SystemConfiguration.framework ，使用 Reachability.h/m 网络状态脚本（网络状态状态脚本）
-///添加依赖iAd.framwork 依赖库，获取广告IDFA  （注释：通过iAd.framwork 依赖库，无法获取IDFA,转用SimulateIDFA.h 类获取）
-///并且 实现ASIdentifierManager 类，不然无法通过编译 （报错 arm64）
 ///添加依赖CoreTelephony.framework,引入SimulateIDFA.h 类，生成IDFA 脚本
 #import <Foundation/Foundation.h>
 #import <sys/utsname.h>
 #import <GetNetWorkInfo.h>
 #import <HTTPUsing.h>
-#import <AdSupport/AdSupport.h>
 #import <SimulateIDFA.h>
 NS_ASSUME_NONNULL_BEGIN
 
